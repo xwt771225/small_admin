@@ -13,7 +13,7 @@
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button type="primary" @click="edit(scope.row.uid)">编辑</el-button>
-          
+      
         </template>
       </el-table-column>
     </el-table>
@@ -33,24 +33,13 @@ export default {
       //获取角色列表
       requestList: "member/requestList"
     }),
-    //删除
-    del(id){
-      requestRoleDelete({id}).then(res=>{
-        if(res.data.code==200){
-          successAlert(res.data.msg)
-          this.requestList()
-        }else{
-          warningAlert(res.data.msg)
-        }
-      })
-    },
     //编辑
     edit(id){
       this.$emit("edit",id)
     }
   },
   mounted() {
-    this.requestList();
+    this.requestList();3
   },
   computed: {
     ...mapGetters({

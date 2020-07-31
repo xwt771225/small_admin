@@ -53,13 +53,7 @@ export default {
         password: "",
         status: 1
       },
-      rules: {
-        nickname: [
-          { required: true, message: "角色名称不能为空", trigger: "blur" }
-        ],
-        phone: [{ required: true, message: "手机号不能为空", trigger: "blur" }],
-        password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
-      }
+      
     };
   },
   methods: {
@@ -82,21 +76,7 @@ export default {
         this.empty();
       }
     },
-    //添加
-    add() {
-      this.form.menus = this.$refs.tree.getCheckedKeys().join(",");
-
-      requestRoleAdd(this.form).then(res => {
-        if (res.data.code == 200) {
-          this.empty();
-          this.cancel();
-          successAlert("添加成功");
-          this.requestRoleList();
-        } else {
-          warningAlert(res.data.msg);
-        }
-      });
-    },
+    
     //获取详情
     getDetail(id) {
       requestMemberDetail({ uid: id }).then(res => {

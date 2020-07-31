@@ -1,21 +1,19 @@
-import {requestMemberList} from "../../util/request"
+import {requestBannerList} from "../../util/request"
 const state = {
-    //列表的数据
+    //列表数据
     list: []
 
 }
-
+//修改list
 const mutations = {
-
     changeList(state, list) {
         state.list = list
     }
-    //修改list
 }
 
 const actions = {
-    requestList({ commit } ) {
-        requestMemberList().then(res=>{
+    requestList({ commit }) {
+        requestBannerList().then(res=>{
             commit("changeList",res.data.list)
         })
     }

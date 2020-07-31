@@ -285,7 +285,7 @@ export const requestGoodsDelete = params => {
     })
 }
 //会员列表
-export const requestMembersList = (params) => {
+export const requestMemberList = (params) => {
     return axios({
         url: baseUrl + "/api/memberlist",
         method: "get",
@@ -307,9 +307,35 @@ export const requestMemberUpdate = params => axios({
     method: "post",
     data: qs.stringify(params)
 })
+//轮播图添加
+export const requestBannerAdd = params => axios({
+    url: baseUrl + "/api/banneradd",
+    method: "post",
+    data: params
+})
 
+//轮播图列表
+export const requestBannerList = () => axios({
+    url: baseUrl + "/api/bannerlist",
+})
 
+//轮播图详情
+export const requestBannerDetail = params => axios({
+    url: baseUrl + "/api/bannerinfo",
+    params
+})
+//轮播图修改
+export const requestBannerUpdate = params => axios({
+    url: baseUrl + "/api/banneredit",
+    method: "post",
+    data: params
+})
 
-
+//轮播图删除
+export const requestBannerDelete = params => axios({
+    url: baseUrl + "/api/bannerdelete",
+    data: params,
+    method: "post"
+})
 
 
